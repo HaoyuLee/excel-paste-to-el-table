@@ -1,0 +1,21 @@
+{
+  "name": "excel-paste-to-el-table",
+  "version": "1.0.0",
+  "description": "将excel一列或多列数据粘贴到el-table指定位置的vue2指令",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx vite"
+  },
+  "keywords": [
+    "excel",
+    "el-table",
+    "vue",
+    "directive",
+    "v-paste"
+  ],
+  "author": "lihaoyu",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}
