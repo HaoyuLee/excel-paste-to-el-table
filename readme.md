@@ -1,4 +1,5 @@
-# 将 excel 一列或多列数据粘贴到 el-table 指定位置的 vue2 指令
+# excel-paste-to-el-table
+将 excel 一列或多列数据粘贴到 el-table 指定位置的 vue2 指令
 -------
 ## usage
 
