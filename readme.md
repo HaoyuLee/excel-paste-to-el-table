@@ -1,6 +1,9 @@
 # excel-paste-to-el-table
+
 将 excel 一列或多列数据粘贴到 el-table 指定位置的 vue2 指令
+
 -------
+[deme](https://codesandbox.io/p/sandbox/vibrant-raman-g3t8be)
 ## usage
 
 + 1.安装
@@ -8,14 +11,17 @@
 npm i excel-paste-to-el-table
 ```
 ```js
+// 全局指令
 import Vue from 'vue'
 import { excelPasteToElTable } from 'excelPasteToElTable'
-/Vue.use(excelPasteToElTable) // 注册全局指令
+Vue.use(excelPasteToElTable) 
 
-new Vue({
-  el: '#app',
-  directive: { paste: excelPasteToElTable } //局部指令
-})
+//局部指令
+export default {
+  directives: { 
+    paste: excelPasteToElTable
+  } 
+}
 
 ```
 + 2.使用

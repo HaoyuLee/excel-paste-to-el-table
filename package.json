@@ -4,7 +4,7 @@
   "description": "将excel一列或多列数据粘贴到el-table指定位置的vue2指令",
   "main": "src/index.js",
   "scripts": {
-    "start": "npx vite"
+    "start": "npx vite serve example"
   },
   "keywords": [
     "excel",
@@ -14,8 +14,5 @@
     "v-paste"
   ],
   "author": "lihaoyu",
-  "license": "ISC",
-  "devDependencies": {
-    "vite": "^4.3.9"
-  }
+  "license": "ISC"
 }

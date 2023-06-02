@@ -8,10 +8,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.13/lib/theme-chalk/index.min.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.4/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.13/lib/index.min.js"></script>
+  <style>
+    #app {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <el-table v-paste row-key="id" :data="tableData" style="width: 100%">
+    <h3>复制excel数据后，选中一个单元格，然后ctrl+v</h3>
+    <el-button type="primary" @click="handleCopyData">复制excel数据</el-button>
+    <el-table v-paste row-key="id" :data="tableData" style="width: 800px;margin: 0 auto;">
       <el-table-column prop="date" label="日期" width="180">
       </el-table-column>
       <el-table-column prop="name" label="姓名" width="180">
@@ -52,7 +59,24 @@
             address: '上海市普陀区金沙江路 1516 弄'
           }]
         }
-      }
+      },
+      methods: {
+        handleCopyData() {
+          const data = `A-001	SN0528001	是	返样	
+          A - 002	SN0528002	否	观察	2
+          A - 003	SN0528003	是	报废
+          B - 001	SN05280011	是	返样
+          B - 002	SN05280022	否	观察	2
+          B - 003	SN05280033	是	报废
+          C - 001	SN052800111	是	返样
+          C - 002	SN052800222	否	观察	2 `
+          navigator.clipboard.writeText(data).then(() => {
+            alert("复制成功");
+          }, () => {
+            alert("复制失败");
+          })
+        }
+      },
     })
   </script>
 </body>
