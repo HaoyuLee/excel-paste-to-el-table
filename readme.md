@@ -30,6 +30,15 @@ export default {
   <el-table v-paste row-key="id"></el-table>
 </tempalte>
 ```
++ 3.props
+  
+|  prop   | type  | description | required |
+|  ----  | ----  | ---- | ----|
+| row-key  | string | 行key，详情见element文档 | true|
+| prop | string | 列属性 | true |
+| formatter  | function | 将特殊字段的excel数据转化为table对应字段的数据 | false
+
+
 
 ### tip
 
