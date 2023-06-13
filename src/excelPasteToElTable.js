@@ -7,7 +7,8 @@ export default {
     const isElTable = el.classList.contains('el-table')
     if (!isElTable) return console.error('v-paste:', "directive can't be used for non el-table ")
   },
-  inserted(el) {
+  inserted(el, binding, vnode, oldVnode) {
+    setGlobalData(vnode)
     // 粘贴事件监听
     el.addEventListener('paste', (e) => {
       e.preventDefault()
@@ -38,17 +39,24 @@ export default {
     })
   },
   update(el, binding, vnode, oldVnode) {
-    $CI = vnode.componentInstance
-    columns = $CI.columns
-    tableData = $CI.data
+    setGlobalData(vnode)
+  }
+}
 
-    // 监听el-table中点击单元格事件， 设置当前选中的单元格数据
-    $CI.$on('cell-click', (row, column, cell, event) => {
-      currentCell = {
-        prop: column.property,
-        rowKey: $CI.rowKey,
-        keyValue: row[$CI.rowKey],
-      }
-    })
-  },
+/**
+ * 设置全局变量内容
+ * @param {Vnode} vnode el-table虚拟dom
+ */
+function setGlobalData(vnode) {
+  $CI = vnode.componentInstance
+  columns = $CI.columns
+  tableData = $CI.data
+  // 监听el-table中点击单元格事件， 设置当前选中的单元格数据
+  $CI.$on('cell-click', (row, column, cell, event) => {
+    currentCell = {
+      prop: column.property,
+      rowKey: $CI.rowKey,
+      keyValue: row[$CI.rowKey]
+    }
+  })
 }
