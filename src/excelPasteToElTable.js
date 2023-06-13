@@ -30,7 +30,7 @@ export default {
           // data[r].length - 当前行要粘贴几个单元格的数据
           for (let c = 0; c < data[r].length; c++) {
             const currentProp = props[startColIndex + c]
-            $CI.$set($CI.data[currentRowIndex], currentProp, data[r][c])
+            $CI.$set($CI.data[currentRowIndex], currentProp, getValue(currentProp, data[r][c]))
           }
         }
       } else {
@@ -43,6 +43,16 @@ export default {
   }
 }
 
+/**
+ * 根据列是否有formatter函数，生成对应的列的实际的值(在一些excel和table展示的类型不同时使用，比如【是否】-checkbox)
+ * @param {String} currentProp 当前列prop
+ * @param {*} excelCellValue excel对应的当前列的值
+ * @returns 原始excel值 || 格式化后的值
+ */
+function getValue(currentProp, excelCellValue) {
+  const { formatter } = columns.find((c) => c.property === currentProp)
+  return formatter ? formatter(excelCellValue) : excelCellValue
+}
 /**
  * 设置全局变量内容
  * @param {Vnode} vnode el-table虚拟dom
