@@ -3,6 +3,11 @@
   "version": "1.1.0",
   "description": "将excel一列或多列数据粘贴到el-table指定位置的vue2指令",
   "main": "src/index.js",
+  "homepage": "https://github.com/HaoyuLee/excel-paste-to-el-table",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/HaoyuLee/excel-paste-to-el-table"
+  },
   "scripts": {
     "start": "npx vite serve example"
   },
@@ -13,6 +18,10 @@
     "directive",
     "v-paste"
   ],
-  "author": "lihaoyu",
+  "author": {
+    "name" : "lihaoyu",
+    "email" : "lhy0825@outlook.com",
+    "url" : "https://github.com/HaoyuLee"
+  },
   "license": "ISC"
 }
